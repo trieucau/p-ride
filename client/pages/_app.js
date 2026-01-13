@@ -3,8 +3,8 @@ import Head from "next/head";
 
 // CONTEXT
 import { LocationContextProvider } from "../context/location";
-import {RideContextProvider} from "../context/ride";
-import {UserContextProvider} from "../context/user";
+import { RideContextProvider } from "../context/ride";
+import { UserContextProvider } from "../context/user";
 
 // THEME
 import PRideTheme from "../theme";
@@ -12,7 +12,7 @@ import PRideTheme from "../theme";
 // STYLES
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./index.css"
+import "./index.css";
 
 function MyApp({ Component, pageProps }) {
   const Layout = Component.layout || (({ children }) => <>{children}</>);
@@ -27,17 +27,19 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/icon.png" type="image/png" />
       </Head>
-      <UserContextProvider>
+      <ChakraProvider theme={PRideTheme} resetCSS>
+        <UserContextProvider>
           <LocationContextProvider>
-              <RideContextProvider>
-                <ChakraProvider theme={PRideTheme}>
-                  <Layout>
-                    <Component {...pageProps} />
-                  </Layout>
-                </ChakraProvider>
-              </RideContextProvider>
+            <RideContextProvider>
+              {/* <ChakraProvider theme={PRideTheme}> */}
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+              {/* </ChakraProvider> */}
+            </RideContextProvider>
           </LocationContextProvider>
-      </UserContextProvider>
+        </UserContextProvider>
+      </ChakraProvider>
     </>
   );
 }

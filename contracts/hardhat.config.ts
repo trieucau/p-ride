@@ -13,12 +13,22 @@ const config: HardhatUserConfig = {
   networks: {
     ropsten: {
       url: "https://speedy-nodes-nyc.moralis.io/e1ab103eda1ef6147621f342/eth/ropsten",
-      accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
+      // accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
+
+      //test tại local
+      accounts: process.env.DEPLOYER_PRIVATE_KEY
+        ? [process.env.DEPLOYER_PRIVATE_KEY]
+        : [],
     },
     mumbai: {
       url: `https://rpc-mumbai.maticvigil.com/v1/f79235594e1c3bda499c75b6f0338cc703995047`,
       chainId: 80001,
-      accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
+      // accounts: [process.env.DEPLOYER_PRIVATE_KEY as string],
+
+      //test local
+      accounts: process.env.DEPLOYER_PRIVATE_KEY
+        ? [process.env.DEPLOYER_PRIVATE_KEY]
+        : [],
     },
   },
   namedAccounts: {

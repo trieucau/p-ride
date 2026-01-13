@@ -14,8 +14,8 @@ const Home = () => {
   return (
     <>
       <Box pos={"relative"}>
-      <MapComp />
-      
+        <MapComp />
+
         <Box
           pos={"absolute"}
           d={{ base: "none", lg: "block" }}
@@ -43,7 +43,7 @@ const Home = () => {
           rounded={"lg"}
         >
           <Container>
-              <BookRide />
+            <BookRide />
           </Container>
         </Box>
       </Box>
